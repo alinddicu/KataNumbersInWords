@@ -64,5 +64,11 @@
         {
             Check.That(_converter.Convert(100)).IsEqualTo("OneHundred");
         }
+
+        [TestMethod]
+        public void WhenConvert200ThenReturnOneHundred()
+        {
+            Check.That(_converter.Convert(200)).IsEqualTo("TwoHundred");
+        }
     }
 }

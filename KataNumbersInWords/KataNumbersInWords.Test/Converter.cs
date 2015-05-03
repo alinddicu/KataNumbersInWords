@@ -5,6 +5,12 @@
 
     public class Converter
     {
+        private static readonly Dictionary<int, string> MultipleOf10Mappings = new Dictionary<int, string>
+        {
+            {100, "Hundred"},
+            {1000, "Thousand"},
+        };
+
         private static readonly Dictionary<int, string> BaseMappings = new Dictionary<int, string>
         {
             {0, "Zero"},
@@ -44,17 +50,22 @@
                 return BaseMappings[numeral];
             }
 
-            if (20 <= numeral && numeral <= 90 && numeral%10 == 0)
+            if (20 <= numeral && numeral <= 90 && numeral % 10 == 0)
             {
                 return BaseMappings[numeral];
             }
 
-            if(numeral <= 99)
+            if (numeral <= 99)
             {
                 return BaseMappings[numeral / 10 * 10] + BaseMappings[numeral % 10];
             }
 
-            return "OneHundred";
+            if (numeral % 100 == 0)
+            {
+                return BaseMappings[numeral / 100] + MultipleOf10Mappings[100];
+            }
+
+            return string.Empty;
         }
     }
 }
