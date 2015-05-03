@@ -52,5 +52,11 @@
             Check.That(_converter.Convert(80)).IsEqualTo("Eighty");
             Check.That(_converter.Convert(90)).IsEqualTo("Ninety");
         }
+
+        [TestMethod]
+        public void WhenConvertFrom21ThenReturnTwentyOne()
+        {
+            Check.That(_converter.Convert(21)).IsEqualTo("TwentyOne");
+        }
     }
 }

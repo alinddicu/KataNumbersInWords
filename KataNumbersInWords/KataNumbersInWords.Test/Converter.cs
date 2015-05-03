@@ -49,7 +49,7 @@
                 return BaseMappings[numeral];
             }
 
-            return numeral.ToString(CultureInfo.InvariantCulture);
+            return BaseMappings[numeral / 10 * 10] + BaseMappings[numeral % 10];
         }
     }
 }
