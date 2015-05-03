@@ -72,9 +72,15 @@
         }
 
         [TestMethod]
-        public void WhenConvert101ThenReturnOneHundredTwo()
+        public void WhenConvert102ThenReturnOneHundredTwo()
         {
             Check.That(_converter.Convert(102)).IsEqualTo("OneHundredTwo");
+        }
+
+        [TestMethod]
+        public void WhenConvert1000ThenReturnOneThousand()
+        {
+            Check.That(_converter.Convert(1000)).IsEqualTo("OneThousand");
         }
     }
 }

@@ -60,6 +60,11 @@
                 return BaseMappings[numeral / 10 * 10] + BaseMappings[numeral % 10];
             }
 
+            if (numeral % 1000 == 0)
+            {
+                return BaseMappings[numeral / 1000] + MultipleOf10Mappings[1000];
+            }
+
             if (numeral % 100 == 0)
             {
                 return BaseMappings[numeral / 100] + MultipleOf10Mappings[100];
