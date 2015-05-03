@@ -65,6 +65,11 @@
                 return BaseMappings[numeral / 100] + MultipleOf10Mappings[100];
             }
 
+            if (numeral > 100)
+            {
+                return BaseMappings[numeral / 100] + MultipleOf10Mappings[100] + Convert(numeral % 100);
+            }
+
             return string.Empty;
         }
     }
