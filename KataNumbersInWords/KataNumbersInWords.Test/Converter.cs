@@ -1,7 +1,7 @@
 ﻿namespace KataNumbersInWords
 {
     using System.Collections.Generic;
-    using System.Globalization;
+    using System.Linq;
 
     public class Converter
     {
@@ -13,7 +13,7 @@
 
         private static readonly Dictionary<int, string> BaseMappings = new Dictionary<int, string>
         {
-            {0, "Zero"},
+            {0, ""},
             {1, "One"},
             {2, "Two"},
             {3, "Three"},
@@ -60,24 +60,14 @@
                 return BaseMappings[numeral / 10 * 10] + BaseMappings[numeral % 10];
             }
 
-            if (numeral % 1000 == 0)
+            foreach (var multipleOf10Mapping in MultipleOf10Mappings.Keys.OrderByDescending(m => m))
             {
-                return BaseMappings[numeral / 1000] + MultipleOf10Mappings[1000];
-            }
-
-            if (numeral > 1000 )
-            {
-                return BaseMappings[numeral / 1000] + MultipleOf10Mappings[1000] + Convert(numeral % 1000);
-            }
-
-            if (numeral % 100 == 0)
-            {
-                return BaseMappings[numeral / 100] + MultipleOf10Mappings[100];
-            }
-
-            if (numeral > 100)
-            {
-                return BaseMappings[numeral / 100] + MultipleOf10Mappings[100] + Convert(numeral % 100);
+                if (numeral > multipleOf10Mapping || numeral % multipleOf10Mapping == 0)
+                {
+                    return BaseMappings[numeral / multipleOf10Mapping]
+                           + MultipleOf10Mappings[multipleOf10Mapping]
+                           + Convert(numeral % multipleOf10Mapping);
+                }
             }
 
             return string.Empty;

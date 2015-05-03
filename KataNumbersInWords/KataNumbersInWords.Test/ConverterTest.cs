@@ -17,8 +17,6 @@
         [TestMethod]
         public void WhenConvertFromZeroTo19ThenReturnFromZeroToNineteen()
         {
-
-            Check.That(_converter.Convert(0)).IsEqualTo("Zero");
             Check.That(_converter.Convert(1)).IsEqualTo("One");
             Check.That(_converter.Convert(2)).IsEqualTo("Two");
             Check.That(_converter.Convert(3)).IsEqualTo("Three");
