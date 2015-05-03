@@ -44,12 +44,17 @@
                 return BaseMappings[numeral];
             }
 
-            if (20 <= numeral && numeral <= 90 && numeral % 10 == 0)
+            if (20 <= numeral && numeral <= 90 && numeral%10 == 0)
             {
                 return BaseMappings[numeral];
             }
 
-            return BaseMappings[numeral / 10 * 10] + BaseMappings[numeral % 10];
+            if(numeral <= 99)
+            {
+                return BaseMappings[numeral / 10 * 10] + BaseMappings[numeral % 10];
+            }
+
+            return "OneHundred";
         }
     }
 }

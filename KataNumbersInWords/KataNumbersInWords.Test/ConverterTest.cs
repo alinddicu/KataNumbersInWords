@@ -58,5 +58,11 @@
         {
             Check.That(_converter.Convert(21)).IsEqualTo("TwentyOne");
         }
+
+        [TestMethod]
+        public void WhenConvert100ThenReturnOneHundred()
+        {
+            Check.That(_converter.Convert(100)).IsEqualTo("OneHundred");
+        }
     }
 }
